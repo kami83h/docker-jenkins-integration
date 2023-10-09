@@ -1,31 +1,19 @@
 package com.kami83h.dockerjenkinsdemo;
 
-import com.kami83h.dockerjenkinsdemo.dao.BookRepository;
-import com.kami83h.dockerjenkinsdemo.model.Book;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 @SpringBootApplication
-@RequestMapping("/book")
+@RequestMapping("/")
 public class DockerJenkinsDemoApplication {
 
-    @Autowired
-    private BookRepository bookRepository;
-
-    @PostMapping
-    public Book save(@RequestBody Book book) {
-        return bookRepository.save(book);
-    }
-
     @GetMapping
-    public List<Book> getBooks(){
-
-        return bookRepository.findAll();
+    public String getMessage() {
+        return "Getting inside the Controller";
     }
 
     public static void main(String[] args) {

@@ -1,6 +1,0 @@
-spring:
-  data:
-    mongodb:
-      database: Book
-      host: kamimongodb
-      port: 27017
